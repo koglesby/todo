@@ -2,7 +2,9 @@
   <header class="header">
     <h1>todos</h1>
   </header>
-
+  <form id="new-form">
+    <input type="text" class="new-todo" />
+  </form>
   <section class="main">
   	<ul class="todo-list">
 
@@ -12,7 +14,11 @@
 
 <script>
   $(function() {
-
+    $('#new-form').submit(function(event) {
+      event.preventDefault();
+      var textbox = $('.new-todo');
+      console.log("Task: ", textbox.val());
+    });
 
     function taskHTML(task) {
       var checkedStatus = task.done ? "checked" : "";
